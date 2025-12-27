@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+  <meta charset="UTF-8" />
+  <title>어드민</title>
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+   <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+    
+
+  <link rel="stylesheet" href="./css/common.css" />
+  <link rel="stylesheet" href="./css/app.css" />
+  <link rel="stylesheet" href="./css/widgets.css" />
+</head>
+
+<body>
+<div class="app-shell">
+
+  <!-- main sidebar -->
+  <nav class="main-sidebar">
+    <div class="nav-list">
+      <button class="nav-item active" data-id="search" data-href="https://wskimkj.github.io/search/">
+        <div class="nav-icon-wrap"><i class='bx bx-search'></i></div>
+        <span> 상품</span>
+      </button>
+
+      <button class="nav-item" data-id="template" data-href="https://wskimkj.github.io/trim2/">
+        <div class="nav-icon-wrap"><i class="bx bx-chat"></i></div>
+        <span> 멘트</span>
+      </button>
+
+      <button class="nav-item" data-id="order" data-href="https://wskimkj.github.io/return-inf/">
+        <div class="nav-icon-wrap"><i class='bx  bxs-basket'></i></div>
+        <span> 주문 </span>
+      </button>
+
+      <button class="nav-item" data-id="shipment" data-href="https://wskimkj.github.io/Shipment/">
+        <div class="nav-icon-wrap"><i class='bx bx-send'></i></div>
+        <span> 출고</span>
+      </button>
+
+      <button class="nav-item" data-id="memo" data-href="https://wskimkj.github.io/memo/">
+        <div class="nav-icon-wrap"><i class="bx bx-edit-alt"></i></div>
+        <span> 메모</span>
+      </button>
+
+      <!-- util (sub) -->
+      <button class="nav-item" id="utilBtn" data-id="util">
+        <div class="nav-icon-wrap"><i class='bx bx-category'></i></div>
+        <span> 유틸 </span>
+      </button>
+
+      <!-- google (sub) -->
+      <button class="nav-item" id="googleBtn" data-id="google">
+        <div class="nav-icon-wrap"><i class='bx  bxs-cabinet'></i> </div>
+        <span> 시트 </span>
+      </button>
+    </div>
+
+    <button class="nav-footer-btn" id="phoneFormatBtn" type="button" title="전화번호 포맷">
+      <i class='bx bx-phone'></i><span>Phone</span>
+    </button>
+
+    <button class="nav-footer-btn" id="trackingWidgetBtn" type="button" title="배송조회">
+      <i class='bx bx-package'></i><span>Track</span>
+    </button>
+
+    <button class="nav-footer-btn" id="accountWidgetBtn" type="button" title="계정 조회">
+      <i class='bx bx-key'></i><span>ID/PW</span>
+    </button>
+
+    <button class="nav-footer-btn" id="adminEventBtn" type="button" title="이벤트 보기">
+      <i class='bx bx-calendar-event'></i><span>event</span>
+    </button>
+  </nav>
+
+  <!-- sheet sub sidebar -->
+  <aside class="sub-sidebar" id="subSidebar">
+    <div class="sub-list">
+
+      <button class="sub-item google-child" data-href="https://docs.google.com/spreadsheets/d/1_L12NKkBVU4c5xDPrYLUQRnSUG2NoAwYGWIfPDVO3bM/edit?gid=366983013#gid=366983013">
+        <i class='bx bx-chevron-right'></i><span>개인시트</span>
+      </button>
+      <button class="sub-item google-child" data-href="https://docs.google.com/spreadsheets/d/1_Bxfag-90U6u-6JbhxNqeoD9vRns-CpPeXPIJYO1Z5o/edit?gid=1265906605#gid=1265906605">
+        <i class='bx bx-chevron-right'></i><span>반품</span>
+      </button>
+      <button class="sub-item google-child" data-href="https://docs.google.com/spreadsheets/d/1Cjoo-x9lBA5pFtGoxftdAxdoKrzt770XcPGeXOidPiI/edit?gid=0#gid=0">
+        <i class='bx bx-chevron-right'></i><span>Team.반품</span>
+      </button>
+      <button class="sub-item google-child" data-href="https://docs.google.com/spreadsheets/d/1LPy69E2yPTaSwxFAYrX6qV0BZx1tW0YdonLRNqeo5Vc/edit?gid=0#gid=0">
+        <i class='bx bx-chevron-right'></i><span>Team.물류</span>
+      </button>
+      <button class="sub-item google-child" data-href="https://docs.google.com/spreadsheets/d/1cAXTlsGoK8FNEZ-7PaR7dfLjykPfCqLOIcyBqqdu3wY/edit?gid=925106579#gid=925106579">
+        <i class='bx bx-chevron-right'></i><span>Team.업무</span>
+      </button>
+      <button class="sub-item google-child" data-href="https://docs.google.com/spreadsheets/d/1dvTCc9JlORbvc29rQ_ai-z8RQSPibQUPHvjrH4iuhFk/edit?gid=1184149787#gid=1184149787">
+        <i class='bx bx-chevron-right'></i><span>Team.주간</span>
+      </button>
+
+      <!-- ✅ 추가: "기타" (3레벨 아래 아코디언) -->
+      <div class="sub-accordion" id="googleEtcAccordion">
+        <button type="button" class="sub-acc-head" id="googleEtcHead" aria-expanded="false">
+          <span class="left">
+            <i class='bx bx-chevron-right'></i><span>기타</span>
+          </span>
+          <i class='bx bx-chevron-down sub-acc-caret'></i>
+        </button>
+
+        <div class="sub-acc-body" id="googleEtcBody" hidden>
+          <button class="sub-acc-item google-etc-child" data-href="https://docs.google.com/spreadsheets/d/1bdGBLki_3CVaq7BDL3u-pQDSZVBD7roeEdsyP-74Lz0/edit?gid=0#gid=0">
+            <i class='bx bxs-spreadsheet'></i><span>어드민 정보</span>
+          </button>
+          <button class="sub-acc-item google-etc-child" data-href="https://docs.google.com/spreadsheets/d/1zzqZGk8C30LZo3BXxhzFSNpe_GzgBVeDw4X5eIVystc/edit?gid=100436764#gid=100436764">
+            <i class='bx bxs-spreadsheet'></i><span>생산팀</span>
+          </button>
+          <button class="sub-acc-item google-etc-child" data-href="https://docs.google.com/spreadsheets/d/1F4EC5w1VPmFpwSbw0LuIv5QkwSSs8YkCBPZKY3h-z64/edit?gid=0#gid=0">
+            <i class='bx bxs-spreadsheet'></i><span>SCM</span>
+          </button>
+          <button class="sub-acc-item google-etc-child" data-href="https://docs.google.com/spreadsheets/d/1fcAxrvEENtakHa8rdtebbOuX5aVga37kMjGqqkpnW_o/edit?gid=960948614#gid=960948614">
+            <i class='bx bxs-spreadsheet'></i><span>입고 예정</span>
+          </button>
+          <button class="sub-acc-item google-etc-child" data-href="https://docs.google.com/spreadsheets/d/1bMkC-aPMY8Ot2Ye7At9RkijD3ve3grlWC1tM3eZbGng/edit?gid=1325056976#gid=1325056976">
+            <i class='bx bxs-spreadsheet'></i><span>25년 재고</span>
+          </button>
+          <button class="sub-acc-item google-etc-child" data-href="https://docs.google.com/spreadsheets/d/1jbQoWqwIEOZhe2hhQwgdOdvIUPXvMAOubmED0xylOY4/edit?gid=1761427069#gid=1761427069">
+            <i class='bx bxs-spreadsheet'></i><span>면세점</span>
+          </button>
+          <button class="sub-acc-item google-etc-child" data-href="https://docs.google.com/spreadsheets/d/1rnp4nddpDtfewbH0GUMAvRYykGiITVaqDKIIKGJSWyc/edit?gid=1054398719#gid=1054398719">
+            <i class='bx bxs-spreadsheet'></i><span>결제 내역</span>
+          </button>
+          <button class="sub-acc-item google-etc-child" data-href="https://docs.google.com/spreadsheets/d/1H2hiIfmhHf7NmSDINNGZ5jOD-mx3Uw_JvukmU51IwRA/edit?pli=1&gid=1629484064#gid=1629484064">
+            <i class='bx bxs-spreadsheet'></i><span>공구일정</span>
+          </button>
+          <button class="sub-acc-item google-etc-child" data-href="https://docs.google.com/spreadsheets/d/1NIrkvMGHIs6Ho0KwWUD7N1q6yxFuvk6aHa2LCiftXQA/edit?gid=1834028852#gid=1834028852">
+            <i class='bx bxs-spreadsheet'></i><span>콘텐츠기획팀_디자인&마케팅 요청 기획안</span>
+          </button>
+          <button class="sub-acc-item google-etc-child" data-href="https://docs.google.com/spreadsheets/d/1na2Q2HN4h2h-ko9Ua4zx_XWMkEpT6mbazt1eeMKt-bA/edit?gid=2111576866#gid=2111576866">
+            <i class='bx bxs-spreadsheet'></i><span>콘텐츠기획팀_웹디 스케줄</span>
+          </button>
+          <button class="sub-acc-item google-etc-child" data-href="https://docs.google.com/spreadsheets/d/1fEjw9YrnDmMLwGMHST4_UCi2OuuBypdH775V6BnVRfQ/edit?gid=469621993#gid=469621993">
+            <i class='bx bxs-spreadsheet'></i><span>ws 기획팀</span>
+          </button>
+          <button class="sub-acc-item google-etc-child" data-href="https://docs.google.com/spreadsheets/d/1_nmC5LgfcjJgUK0eL1oVaf0mPRAevY5oVUr47dyb6Ow/edit?gid=214355881#gid=214355881">
+            <i class='bx bxs-spreadsheet'></i><span>bs 기획팀</span>
+          </button>
+          <button class="sub-acc-item google-etc-child" data-href="https://docs.google.com/spreadsheets/d/1Po6I7Q3gBl8OU85IDjpjTvtDlZhOovjxBvGdNH6wyFw/edit?gid=139252057#gid=139252057">
+            <i class='bx bxs-spreadsheet'></i><span>회사 문화</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- util sub sidebar -->
+  <aside class="sub-sidebar" id="utilSidebar">
+    <div class="sub-list">
+      <button class="sub-item util-child" data-href="https://wskimkj.github.io/account/">
+        <i class='bx bx-chevron-right'></i><span>계정</span>
+      </button>
+      <button class="sub-item util-child" data-href="https://wskimkj.github.io/tracking/">
+        <i class='bx bx-chevron-right'></i><span>배송조회</span>
+      </button>
+      <button class="sub-item util-child" data-href="https://wskimkj.github.io/refund24/">
+        <i class='bx bx-chevron-right'></i><span>환불</span>
+      </button>
+      <button class="sub-item util-child" data-action="event">
+        <i class='bx bx-chevron-right'></i><span>이벤트</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- main content -->
+  <div class="content">
+    <div class="card">
+      <iframe src="https://wskimkj.github.io/search/" id="mainFrame"></iframe>
+    </div>
+  </div>
+
+  <!-- phone widget -->
+  <div class="phone-widget" id="phoneWidget">
+    <div class="phone-head">
+      <div class="phone-title">Phone</div>
+      <button class="phone-close" id="phoneClose" type="button" aria-label="닫기">
+        <i class='bx bx-x' style="font-size:18px;"></i>
+      </button>
+    </div>
+
+    <div class="phone-body">
+      <input id="phoneInput" class="phone-input" placeholder="" />
+      <div class="phone-row">
+        <div id="phoneOutput" class="phone-output"></div>
+        <button id="phoneCopy" class="phone-copy" type="button">복사</button>
+      </div>
+      <div id="phoneHint" class="phone-hint">.</div>
+    </div>
+  </div>
+
+  <!-- tracking widget -->
+  <div class="tracking-widget" id="trackingWidget">
+    <div class="tracking-head">
+      <div class="tracking-title">Tracking</div>
+      <button class="tracking-close" id="trackingClose" type="button" aria-label="닫기">
+        <i class='bx bx-x' style="font-size:18px;"></i>
+      </button>
+    </div>
+
+    <div class="tracking-body">
+      <div class="tracking-carrier-row" id="trackingCarrierRow">
+        <button class="tracking-carrier-pill active" data-full="CJ대한통운" data-url="https://trace.cjlogistics.com/next/tracking.html?wblNo=">CJ</button>
+        <button class="tracking-carrier-pill" data-full="로젠택배" data-url="https://www.ilogen.com/web/personal/trace/">로젠</button>
+        <button class="tracking-carrier-pill" data-full="한진택배" data-url="https://www.hanjin.com/kor/CMS/DeliveryMgr/WaybillResult.do?mCode=MN038&schLang=KR&wblnumText2=">한진</button>
+        <button class="tracking-carrier-pill" data-full="우체국택배" data-url="https://service.epost.go.kr/trace.RetrieveDomRigiTraceList.comm?sid1=">우체국</button>
+      </div>
+
+      <label class="tracking-label" for="trackingInput">운송장 번호</label>
+      <input id="trackingInput" class="tracking-input" placeholder="숫자만 입력 (8~15자리)" />
+      <button class="tracking-btn" id="trackingGo" type="button">조회</button>
+      <p id="trackingError" class="tracking-error" style="display:none;"></p>
+
+      <div class="tracking-result">
+        <div id="trackingResultHeader" class="tracking-result-header"></div>
+        <div class="tracking-frame-wrapper">
+          <iframe id="trackingFrame" class="tracking-frame-scale"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- account widget -->
+  <div class="account-widget" id="accountWidget">
+    <div class="account-head">
+      <div class="account-head-left">
+        <button type="button" class="account-badge account-badge-link" id="accountSheetBtn">ACCOUNT</button>
+      </div>
+
+      <button class="account-close" id="accountClose" type="button" aria-label="닫기">
+        <i class='bx bx-x' style="font-size:18px;"></i>
+      </button>
+    </div>
+
+    <div class="account-body">
+      <div class="account-row">
+        <input id="accountQuery" class="account-input" placeholder="검색어 입력 후 Enter" />
+      </div>
+
+      <label class="account-toggle" title="기본은 OR, 체크하면 AND">
+        <input id="accountMatchAll" type="checkbox" />
+        ALL
+      </label>
+
+      <div class="account-meta">
+        <span></span>
+        <span id="accountCount" class="account-count">0건</span>
+      </div>
+
+      <div id="accountResult" class="account-result">
+        <div class="account-empty">데이터 불러오는 중...</div>
+      </div>
+
+      <div id="accountToast" class="account-toast">복사</div>
+    </div>
+  </div>
+
+  <!-- calendar widget -->
+  <div class="calendar-widget" id="calendarWidget">
+    <div class="calendar-header">
+      <div class="calendar-left">
+        <div class="calendar-title" id="calendarMonthLabel">December 2025</div>
+      </div>
+
+      <div class="calendar-right">
+        <div class="cal-view-seg" id="calViewSeg">
+          <button type="button" data-view="week">주</button>
+          <button type="button" data-view="month">월</button>
+        </div>
+
+        <div class="today-event-icon dim" id="todayEventIcon" title="이벤트 시트 열기">
+          <i class='bx bx-bell'></i>
+          <div class="today-event-badge" id="todayBadge"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="date-popup" id="datePopup">
+      <div class="date-popup-head">
+        <strong id="popupDateLabel">12/15(월)</strong>
+        <button class="date-popup-close" id="popupClose" type="button" aria-label="닫기">
+          <i class='bx bx-x' style="font-size:18px;"></i>
+        </button>
+      </div>
+      <div class="date-popup-list" id="popupEventList"></div>
+    </div>
+
+    <div class="calendar-weekdays">
+      <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span>
+    </div>
+    <div class="calendar-days" id="calendarDays"></div>
+  </div>
+
+</div>
+
+<script type="module" src="./js/app.js"></script>
+</body>
+</html>
